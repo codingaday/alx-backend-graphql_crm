@@ -1,4 +1,4 @@
-# crm/schema.py
+
 
 """
 GraphQL schema for the CRM application.

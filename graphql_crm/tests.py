@@ -1,4 +1,3 @@
-# crm/tests.py
 
 from decimal import Decimal
 
@@ -159,21 +158,3 @@ class OrderFilterTest(TestCase):
         self.assertEqual(f.qs.count(), 1)
 
 
-# class CustomerGraphQLTest(GraphQLTestCase):
-#     GRAPHQL_SCHEMA = schema
-
-#     def test_create_customer_mutation(self):
-#         response = self.query(
-#             """
-#             mutation {
-#                 createCustomer(input: {name: "Test", email: "test@example.com", phone: "+1234567890"}) {
-#                     success
-#                     customer { id name email }
-#                     errors
-#                 }
-#             }
-#             """
-#         )
-#         print("GraphQL response:", response.content)
-#         self.assertResponseNoErrors(response)
-#         self.assertTrue(response.json()["data"]["createCustomer"]["success"])

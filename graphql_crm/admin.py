@@ -1,4 +1,4 @@
-# crm/admin.py
+
 
 """
 Django admin configuration for CRM models.

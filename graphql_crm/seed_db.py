@@ -1,4 +1,3 @@
-# crm/seed_db.py
 
 """
 Database seeding script for the CRM application.

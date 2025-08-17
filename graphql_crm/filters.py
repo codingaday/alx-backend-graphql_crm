@@ -1,4 +1,4 @@
-# crm/filters.py
+
 import django_filters as df
 
 from graphql_crm.models import Customer, Order, Product
