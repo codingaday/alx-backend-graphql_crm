@@ -1,13 +1,13 @@
 # alx_backend_graphql_crm/schema.py
 
 """
-Main GraphQL schema for the alx_backend_graphql project.
+Main GraphQL schema for the alx_backend_graphql_crm project.
 """
 
 import graphene
 
-from graphql_crm.schema import Mutation as CrmMutation
-from graphql_crm.schema import Query as CrmQuery
+from crm.schema import Mutation as CrmMutation
+from crm.schema import Query as CrmQuery
 
 
 class Query(CrmQuery, graphene.ObjectType):

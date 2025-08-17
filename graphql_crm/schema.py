@@ -16,8 +16,8 @@ from django.db import transaction
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 
-from crm.filters import CustomerFilter, OrderFilter, ProductFilter
-from crm.models import Customer, Order, OrderProduct, Product
+from graphql_crm.filters import CustomerFilter, OrderFilter, ProductFilter
+from graphql_crm.models import Customer, Order, OrderProduct, Product
 
 
 # GraphQL Types
