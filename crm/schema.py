@@ -7,7 +7,7 @@ This module defines all GraphQL queries, mutations, and types
 related to customer relationship management functionality.
 """
 
-import re
+
 from datetime import datetime
 from decimal import Decimal
 
@@ -19,6 +19,7 @@ from graphene_django.filter import DjangoFilterConnectionField
 from crm.filters import CustomerFilter, OrderFilter, ProductFilter
 from crm.models import Customer, Order, OrderProduct, Product
 
+from .models import Product
 
 # GraphQL Types
 class CustomerType(DjangoObjectType):
@@ -558,3 +559,37 @@ class Mutation(graphene.ObjectType):
     bulk_create_customers = BulkCreateCustomers.Field()
     create_product = CreateProduct.Field()
     create_order = CreateOrder.Field()
+
+
+
+class ProductType(graphene.ObjectType):
+    id = graphene.ID()
+    name = graphene.String()
+    stock = graphene.Int()
+
+class UpdateLowStockProducts(graphene.Mutation):
+    class Arguments:
+        # no input needed
+        pass
+
+    updated_products = graphene.List(ProductType)
+    message = graphene.String()
+
+    def mutate(self, info):
+        low_stock_products = Product.objects.filter(stock__lt=10)
+
+        updated = []
+        for product in low_stock_products:
+            product.stock += 10  # simulate restocking
+            product.save()
+            updated.append(product)
+
+        return UpdateLowStockProducts(
+            updated_products=updated,
+            message="Low stock products have been updated!"
+        )
+
+
+class Mutation(graphene.ObjectType):
+    # keep existing mutations...
+    update_low_stock_products = UpdateLowStockProducts.Field()
