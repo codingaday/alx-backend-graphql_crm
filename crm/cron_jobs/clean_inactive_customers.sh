@@ -3,7 +3,8 @@
 # Activate virtual environment if needed (adjust path as necessary)
 # source 
 # Calculate date one year ago
-ONE_YEAR_AGO=$(date -d "1 year ago" '+%Y-%m-%d')
+ONE_YEAR_AGO=$(date -d "365 days ago" '+%Y-%m-%d')
+
 
 # Run Django shell command to delete inactive customers
 DELETED_COUNT=$(python manage.py shell -c "
@@ -26,3 +27,4 @@ echo "[$TIMESTAMP] Deleted $DELETED_COUNT inactive customers" >> /tmp/customer_c
 
 # Make the script executable
 chmod +x "$0"
+
