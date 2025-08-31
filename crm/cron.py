@@ -2,6 +2,9 @@ import logging
 from datetime import datetime
 import requests
 
+from gql.transport.requests import RequestsHTTPTransport
+from gql import gql, Client
+
 LOG_FILE = "/tmp/crm_heartbeat_log.txt"
 
 
