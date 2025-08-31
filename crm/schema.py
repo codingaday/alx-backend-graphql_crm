@@ -20,6 +20,7 @@ from crm.filters import CustomerFilter, OrderFilter, ProductFilter
 from crm.models import Customer, Order, OrderProduct, Product
 
 from .models import Product
+from crm.models import Product
 
 # GraphQL Types
 class CustomerType(DjangoObjectType):
